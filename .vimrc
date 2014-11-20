@@ -63,4 +63,4 @@ nnoremap <Tab> <C-W><C-W>
 nnoremap <leader>h :bprevious<CR>
 nnoremap <leader>l :bnext<CR>
 inoremap hh <ESC>
-map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
