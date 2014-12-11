@@ -1,6 +1,8 @@
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-  
+
+colorscheme molokai
+let g:rehash256 = 1
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
