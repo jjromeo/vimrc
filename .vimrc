@@ -9,9 +9,9 @@ filetype plugin indent on
 let NERDTreeWinSize = 18 
 autocmd vimenter * NERDTree
 set number
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set encoding=utf-8
 set scrolloff=3
@@ -40,24 +40,22 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 let mapleader = ","
 set list
 set listchars=tab:▸\ ,eol:¬
 set smartindent
-set tabstop=4
-set shiftwidth=4
 set expandtab
-au FocusLost * :wa
+"au FocusLost * :wa
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>w <C-w>v<C-w>1
 nnoremap <leader>q <C-w>q
@@ -66,3 +64,12 @@ nnoremap <leader>h :bprevious<CR>
 nnoremap <leader>l :bnext<CR>
 inoremap hh <ESC>
 map <leader>n :NERDTreeToggle<CR>
+"For syntastic linter
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
