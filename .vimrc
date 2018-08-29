@@ -158,6 +158,11 @@ endfunction
 vmap <Leader>z :call I18nTranslateString()<CR>
 vmap <Leader>dt :call I18nDisplayTranslation()<CR>
 
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
 nnoremap <Leader>f :RVfactory<CR>
 " speed up vim with old regex engine
 set re=1
