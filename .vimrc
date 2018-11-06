@@ -1,12 +1,27 @@
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
+" Disable swp files
+set noswapfile
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'epilande/vim-react-snippets'
+
 colorscheme molokai
 let g:rehash256 = 1
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-let NERDTreeWinSize = 18 
-autocmd vimenter * NERDTree
+
+let NERDTreeWinSize = 18
+let NERDTreeShowHidden=1
+map <leader>nt :NERDTreeToggle<CR>
 set number
 set tabstop=2
 set shiftwidth=2
@@ -39,14 +54,6 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 let mapleader = ","
@@ -58,12 +65,10 @@ set expandtab
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>w <C-w>v<C-w>1
 nnoremap <leader>q <C-w>q
-nnoremap <Tab> <C-W><C-W>
 nnoremap <leader>h :bprevious<CR>
 nnoremap <leader>l :bnext<CR>
 "nnoremap <CR> :wa<CR>:!!<CR>
 inoremap jj <ESC>
-map <leader>n :NERDTreeToggle<CR>
 "For syntastic linter
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -76,6 +81,8 @@ command! -nargs=0 RunTests
       \ | execute ':redraw!'
 
 nmap <leader>i :RunTest<CR>
+
+nmap <leader>a :A<CR>
 "Run test that line is currently on in rspec in tmux pane 2"
 command! -nargs=0 RunTest
       \ | execute ":silent !tmux send-keys -t 2 'rspec %:" .(line('.') + 1) . "' C-m"
@@ -85,7 +92,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 
 
 " make YCM compatible with UltiSnips (using supertab)
@@ -99,4 +105,13 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:UltiSnipsEditSplit="vertical"
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|deps'
+autocmd BufWritePre * %s/\s\+$//e
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
