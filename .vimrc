@@ -18,21 +18,20 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'godlygeek/tabular'
-Plugin 'SirVer/ultisnips'
 Plugin 'jgdavey/vim-blockle'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'stefanoverna/vim-i18n'
 Plugin 'tpope/vim-rails'
 Plugin 'christoomey/vim-rfactory'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ecomba/vim-ruby-refactoring'
-Plugin 'rorymckinley/vim-rubyhash'
 Plugin 'slim-template/vim-slim'
-Plugin 'honza/vim-snippets'
 Plugin 'mattn/webapi-vim'
+Plugin 'tpope/vim-projectionist'
+Plugin 'github/copilot.vim'
+Plugin 'tomlion/vim-solidity'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -131,7 +130,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 let g:UltiSnipsEditSplit="vertical"
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp'
 
 " This is to allow vim to copy and paste between tmux
 set clipboard=unnamed
@@ -175,6 +174,7 @@ let g:rubyhash_map_keys = 0
 nnoremap <Leader>hp :call ToSymbolKeysLinewise()<CR>
 nnoremap <Leader>hy :call ToStringKeysLinewise()<CR>
 nnoremap <Leader>hh :%s/:\([^=,'"]*\) =>/\1:/gc<CR>
+let g:provider = 'ruby'
 
 let g:rails_projections = {
       \  'app/*.rb': {
@@ -186,4 +186,4 @@ let g:rails_projections = {
       \     'type': 'test'
       \   }
       \}
-
+set confirm " Allow creating alternate file if it doesn't exist"
